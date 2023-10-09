@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <!-- Basic -->
+ <meta charset="utf-8" />
+ <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+ <!-- Mobile Metas -->
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+ <!-- Site Metas -->
+ <meta name="keywords" content="" />
+ <meta name="description" content="" />
+ <meta name="author" content="" />
+<link rel="shortcut icon" href="http://127.0.0.1:5000/static/images/favicon.png" type="">
+
+ <title> RENTAL HOME SWAP </title>
+
+ <!-- bootstrap core css -->
+ <link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/static/css/bootstrap.css" />
+
+ <!-- fonts style -->
+ <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+ <!--owl slider stylesheet -->
+ <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+ <!-- font awesome style -->
+ <link href="http://127.0.0.1:5000/static/css/font-awesome.min.css" rel="stylesheet" />
+
+ <!-- Custom styles for this template -->
+ <link href="http://127.0.0.1:5000/static/css/style.css" rel="stylesheet" />
+ <!-- responsive style -->
+ <link href="http://127.0.0.1:5000/static/css/responsive.css" rel="stylesheet" />
+  
+  <style>
+#details{
+  /* padding: 5%; */
+	  margin: 5% 0;
+}
+
+#post{
+  background-color: rgba(255, 255, 255, 0.90);
+  margin: 30px;
+}
+section{
+  margin-top: 5%;
+}
+
+body{
+  background-image: url('https://wallpaperaccess.com/full/1126810.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#details h4{
+    font-size: larger;
+    font-weight: bold;
+}
+#details h2{
+    font-size: 40px;
+    font-weight: bold;
+}
+header{
+  background-color: rgba(0, 0, 0, 0.30);
+}
+table{
+  width: 100%;
+}
+table td{
+  padding: 5px;
+}
+h1{
+  text-align: center;
+  color: white;
+  font-weight: bolder;
+}
+hr{
+  border:1px solid white;
+}
+  </style>
+
+</head>
+
+<body>
+
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <img src="http://127.0.0.1:5000/static/images/logo.jpg" width="30px" height="30px" alt=""> &nbsp;&nbsp;
+          <a class="navbar-brand" href="#">
+            <span>
+              RENTAL HOME SWAP PORTAL
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ">
+              <li class="nav-item">
+                <form class="form-inline" action="/adminintrasearch" method="post" required>
+                  <input type="number" name="query" class="form-control" placeholder="Enter intracity id" required>
+                &nbsp;
+                  <input type="submit" class="form-control btn-success">
+                </form>
+              </li>
+              &nbsp;
+              <li class="nav-item">
+                <form class="form-inline" action="/adminintersearch" method="post" required>
+                  <input type="number" name="query" class="form-control" placeholder="Enter intercity id" required>
+                &nbsp;
+                  <input type="submit" class="form-control btn-success">
+                </form>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('bookedpost')}}"> Booked post </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('logout')}}"> Sign Out </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    
+  <section class="page-section" id="services">
+    <div class="container">
+        <div id="details"> 
+
+          <div class="row">
+            
+            <div class="col-sm-6">
+              <h1>INTERCITY POSTS</h1>
+                <hr>
+                {% if interlen %}
+                {% for j in range(interlen) %}
+              <div id="post">
+               <table class="table-bordered">
+                {% for i in range(16) %}
+                <tr>
+                  <th>{{ heading1[i] }}</th>
+                  <td>{{ result2[j][i] }}</td>
+                </tr>
+                {% endfor %}
+               </table>
+               {% set Id = result2[j][0] %}
+               <a href="{{ url_for('editinterpost', Id=Id)}}" class="btn btn-success form-control">delete</a>
+              </div>
+              {% endfor %}
+              {% else %}
+              <div class="alert alert-info alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Info!</strong> Result not found
+              </div>
+              {% endif %}
+            </div>
+           
+
+
+
+           
+            <div class="col-sm-6">
+              <h1>INTRACITY POSTS</h1>
+                <hr>
+                {% if intralen %}
+                {% for j in range(intralen) %}
+                <div id="post">
+                 <table class="table-bordered">
+                  {% for i in range(15) %}
+                  <tr>
+                    <th>{{ heading2[i] }}</th>
+                    <td>{{ result1[j][i] }}</td>
+                  </tr>
+                  {% endfor %}
+                 </table>
+                 {% set Id = result1[j][0] %}
+                 <a href="{{ url_for('editintrapost', Id=Id)}}" class="btn btn-success form-control">delete</a>
+                </div>
+                {% endfor %}
+                {% else %}
+                <div class="alert alert-info alert-dismissible">
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                  <strong>Info!</strong> Result not found
+                </div>
+                {% endif %}
+            </div>
+          </div>
+          
+      </div>
+    </div>
+  </section>
+  <!-- end info section -->
+
+
+ <!-- jQery -->
+ <script type="text/javascript" src="http://127.0.0.1:5000/static/js/jquery-3.4.1.min.js"></script>
+ <!-- popper js -->
+ <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+ </script>
+ <!-- bootstrap js -->
+ <script type="text/javascript" src="http://127.0.0.1:5000/static/js/bootstrap.js"></script>
+ <!-- owl slider -->
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+ </script>
+ <!-- custom js -->
+ <!-- <script type="text/javascript" src="http://127.0.0.1:5000/static/js/custom.js"></script> -->
+ <!-- Google Map -->
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+ </script>
+ <!-- End Google Map -->
+</body>
+
+</html>

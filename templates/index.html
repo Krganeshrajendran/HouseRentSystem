@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<style>
+  body{
+  background-image: url('https://wallpaperaccess.com/full/1126810.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+hr{
+  border:1px solid white;
+}
+</style>
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+<link rel="shortcut icon" href="http://127.0.0.1:5000/static/images/favicon.png" type="">
+
+  <title> RENTAL HOME SWAP PORTAL</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/static/css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link href="http://127.0.0.1:5000/static/css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="http://127.0.0.1:5000/static/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="http://127.0.0.1:5000/static/css/responsive.css" rel="stylesheet" />
+  
+  <style>
+    #home, #form1, #form2, #form3{
+      display: none;
+	  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	  padding: 5% 10%;
+	  margin: 10% 5%;
+    }
+    #home.active, #form1.active, #form2.active, #form3.active{
+
+        display: block;
+}
+textarea {
+  background: transparent;
+  color: #fff;
+  border: none;
+  margin-top: 10px;
+  width: 100%;
+  border-bottom: 1px solid #ffffff;
+    background-color: transparent;
+}
+
+#forms{
+margin-top: 5%;
+}
+#form1, #form2, #form3{
+  background-color: rgba(0, 0, 0, 0.50);
+  color: white;
+}
+#forms h2{
+  font-size: 40px;
+  font-weight: bold;
+}
+  </style>
+
+</head>
+
+<body>
+
+  <div class="hero_area">
+
+    <div class="hero_bg_box">
+      <div class="bg_img_box">
+        <img src="http://127.0.0.1:5000/static/images/hero-bg.png" alt="">
+      </div>
+    </div>
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <img src="http://127.0.0.1:5000/static/images/logo.jpg" width="30px" height="30px" alt=""> &nbsp;&nbsp;
+          <a class="navbar-brand" href="#">
+            <span>
+              RENTAL HOME SWAP PORTAL
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#forms" data-value="#form1" onclick="toggleform(event)"> User</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#forms" data-value="#form3" onclick="toggleform(event)"> Admin</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div id="customCarousel1" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail-box text-center">
+                    <h1>
+                      WELCOME <br>
+                      TO <br>
+                      RENTAL HOME SWAP PORTAL
+                    </h1>
+                
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                   <img src="http://127.0.0.1:5000/static/images/slider.png" width="300" height="400">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+      </div>
+
+    </section>
+    <!-- end slider section -->
+  </div>
+
+<section id="forms">
+<div class="container" >
+    <form  method="post" action="{{ url_for('userlog')}}" id="form1" class="active">
+      
+      <h2 class="text-center">SIGN IN</h2> <hr><br>
+
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" class="form-control" id="username" placeholder="Enter username" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required>
+        <br>
+        <input type="checkbox" onclick="showPassword()"><label for=""> &nbsp; Show Password</label>
+      </div>
+      <input type="submit" class="btn btn-success" value="Submit"></br></br>
+      <p>Click here to <a data-value="#form2" onclick="toggleform(event)" style="color:blue;font-weight: bold;">Sign up</a></p>
+    </form>
+
+    
+    <form method="post" action="{{ url_for('userreg')}}" id="form2">
+      <h2 class="text-center">SIGN UP</h2> <hr><br>
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" class="form-control" id="username" placeholder="Enter fullname" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="location">Location:</label>
+        <select name="location" id="" class="form-control" required>
+          <option value="">--Select City--</option>
+          <option value="Bangalore">Bangalore</option>
+          <option value="Mysore">Mysore</option>
+          <option value="Mumbai">Mumbai</option>
+          <option value="Hyderabad">Hyderabad</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Kolkata">Kolkata</option>
+          <option value="Lucknow">Lucknow</option>
+          <option value="Ahmedabad">Ahmedabad</option>
+          <option value="Chennai">Chennai</option>
+          <option value="Trivandrum">Trivandrum</option>
+          <option value="Pune">Pune</option>
+          <option value="Visakhapatnam">Visakhapatnam</option>
+          <option value="Jaipur">Jaipur</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="dob">Date of birth:</label>
+        <input type="date" class="form-control" id="dob" placeholder="Enter dob" name="dob" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Mobile No.:</label>
+        <input type="number" class="form-control" id="phone" placeholder="Enter mobile number" name="phone" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" id="password1" placeholder="Enter password" name="password" required>
+        <br>
+        <input type="checkbox" onclick="showPassword1()"><label for="">&nbsp; Show Password</label>
+      </div>
+      <input type="submit" class="btn btn-success" value="Submit"></br></br>
+      <p>Click here to <a data-value="#form1" onclick="toggleform(event)" style="color:blue;font-weight: bold;">Sign in</a></p>
+    </form>
+
+    <form  method="post" action="{{ url_for('adminlog')}}" id="form3">
+      <h2 class="text-center">SIGN IN</h2> <hr><br>
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" class="form-control" id="username" placeholder="Enter username" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" id="password2" placeholder="Enter password" name="password" required>
+        <br>
+        <input type="checkbox" onclick="showPassword2()"><label for="">&nbsp; Show Password</label>
+      </div>
+      <input type="submit" class="btn btn-success" value="Submit"></br></br>
+    </form>
+
+</div>
+ </section>
+  <!-- info section -->
+
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-6 info_col">
+          <div class="info_contact">
+            <h4>
+              Address
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +01 1234567890
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  demo@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="info_social">
+            <a href="">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-6 info_col ">
+          <h4>
+            Feedback
+          </h4>
+          <form action="#">
+            <input type="text" placeholder="Enter email" />
+			<textarea id="w3review" name="w3review" rows="2" cols="50">Enter feedback</textarea>
+            <button type="submit">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info section -->
+
+
+  <!-- jQery -->
+  <script type="text/javascript" src="http://127.0.0.1:5000/static/js/jquery-3.4.1.min.js"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="http://127.0.0.1:5000/static/js/bootstrap.js"></script>
+  <!-- owl slider -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- custom js -->
+  <!-- <script type="text/javascript" src="http://127.0.0.1:5000/static/js/custom.js"></script> -->
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+
+<script>
+    function toggleform(e) {
+    var Id =(e.target.getAttribute('data-value'))
+    let Items= ['#form1', '#form2', '#form3'];
+    Items.map(function(item) {
+        if(Id === item ) {
+            $(item).addClass("active");
+        }
+        else {
+        $(item).removeClass("active");
+        }
+    })
+}
+
+function test_func(data) {
+  if(data){
+    alert(data);
+  }
+}
+
+test_func({{ msg|safe }})
+
+
+function showPassword(){
+  let a = document.getElementById('password')
+  if(a.type == 'password'){
+    a.type = 'text';
+  } else {
+    a.type = 'password';
+  }
+}
+
+function showPassword1(){
+  let a = document.getElementById('password1')
+  if(a.type == 'password'){
+    a.type = 'text';
+  } else {
+    a.type = 'password';
+  }
+}
+
+function showPassword2(){
+  let a = document.getElementById('password2')
+  if(a.type == 'password'){
+    a.type = 'text';
+  } else {
+    a.type = 'password';
+  }
+}
+</script>
+</body>
+
+</html>

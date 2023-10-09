@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <!-- Basic -->
+ <meta charset="utf-8" />
+ <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+ <!-- Mobile Metas -->
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+ <!-- Site Metas -->
+ <meta name="keywords" content="" />
+ <meta name="description" content="" />
+ <meta name="author" content="" />
+<link rel="shortcut icon" href="http://127.0.0.1:5000/static/images/favicon.png" type="">
+
+ <title> RENTAL HOME SWAP </title>
+
+ <!-- bootstrap core css -->
+ <link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/static/css/bootstrap.css" />
+
+ <!-- fonts style -->
+ <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+ <!--owl slider stylesheet -->
+ <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+ <!-- font awesome style -->
+ <link href="http://127.0.0.1:5000/static/css/font-awesome.min.css" rel="stylesheet" />
+
+ <!-- Custom styles for this template -->
+ <link href="http://127.0.0.1:5000/static/css/style.css" rel="stylesheet" />
+ <!-- responsive style -->
+ <link href="http://127.0.0.1:5000/static/css/responsive.css" rel="stylesheet" />
+  
+  <style>
+#details{
+  /* padding: 5%; */
+	  margin: 5% 0;
+}
+
+#post{
+  background-color: rgba(255, 255, 255, 0.90);
+  padding: 25px;
+}
+section{
+  margin-top: 5%;
+}
+
+body{
+  background-image: url('https://wallpaperaccess.com/full/1126810.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#details h4{
+    font-size: larger;
+    font-weight: bold;
+}
+#details h2{
+    font-size: 40px;
+    font-weight: bold;
+}
+header{
+  background-color: rgba(0, 0, 0, 0.30);
+}
+table{
+  width: 100%;
+}
+table td{
+  padding: 5px;
+}
+h1{
+  text-align: center;
+  color: white;
+  font-weight: bolder;
+}
+hr{
+  border:1px solid white;
+}
+  </style>
+
+</head>
+
+<body>
+
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <img src="http://127.0.0.1:5000/static/images/logo.jpg" width="30px" height="30px" alt=""> &nbsp;&nbsp;
+          <a class="navbar-brand" href="#">
+            <span>
+              RENTAL HOME SWAP PORTAL
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ">
+              <li class="nav-item">
+                <form class="form-inline" action="/intersearch" method="post" required>
+                  <select class="form-control" id="city" name="city">
+                    <option value="">Select City</option>
+                    <option value="Bangalore">Bangalore</option>
+                    <option value="Mysore">Mysore</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Kolkata">Kolkata</option>
+                    <option value="Lucknow">Lucknow</option>
+                    <option value="Ahmedabad">Ahmedabad</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Trivandrum">Trivandrum</option>
+                    <option value="Pune">Pune</option>
+                    <option value="Visakhapatnam">Visakhapatnam</option>
+                    <option value="Jaipur">Jaipur</option>
+                    <option value="Thanjavur">Thanjavur</option>
+
+                  </select>
+                  &nbsp;
+                  <select class="form-control" id="area" name="area">
+                    <option value="">-- select one -- </option>
+                </select>
+                &nbsp;
+                  <input type="submit" class="form-control btn-success">
+                </form>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('userhome')}}"> HOME </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('logout')}}"> Sign Out </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+
+<section class="page-section" id="services">
+  <div class="container">
+    {% if interlen %}
+      <div id="details"> 
+
+        <div class="row">
+          <div class="col-sm-12">
+            <h1>INTERCITY POSTS</h1>
+              <hr>
+              <div class="row">
+              {% for j in range(interlen) %}
+            <div id="post" class="col-sm-5" style="margin: 4%;">
+                  <table class="table-bordered">
+                    {% for i in range(16) %}
+                    <tr>
+                      <th>{{ heading1[i] }}</th>
+                      <td>{{ result1[j][i] }}</td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                      <td></td>
+                      {% set Id =  result1[j][0]%}
+                      <td><a href="{{url_for('book_intercity', Id=Id)}}"><button class="btn btn-success">book</button></a></td>
+                    </tr>
+                  </table>
+            </div>
+            {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% else %}
+      <div class="alert alert-info alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Info!</strong> Result not found
+      </div>
+      {% endif %}
+    </div>
+</section>
+
+
+  <!-- end info section -->
+
+
+ <!-- jQery -->
+ <script type="text/javascript" src="http://127.0.0.1:5000/static/js/jquery-3.4.1.min.js"></script>
+ <!-- popper js -->
+ <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+ </script>
+ <!-- bootstrap js -->
+ <script type="text/javascript" src="http://127.0.0.1:5000/static/js/bootstrap.js"></script>
+ <!-- owl slider -->
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+ </script>
+ <!-- custom js -->
+ <!-- <script type="text/javascript" src="http://127.0.0.1:5000/static/js/custom.js"></script> -->
+ <!-- Google Map -->
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+ </script>
+ <!-- End Google Map -->
+
+ <script>
+   var Bangalore = ["Electronic City","Sadashivanagar","Basavanagudi","Rajajinagar","Malleshwaram","Whitefield","Vijaynagar","BTM Layout","Bommanahalli","Koramangala","Marathahalli","Jaynagar","MG Road","Sarjapur"];
+var Mysore = ["Vijaynagar","J.P.Nagar","Ramakrishna Nagar","Dattagalli","Kuvempunagar","Jayalakshmi Puram","Gokulam","Siddhartha Layout","Yadavgiri","Lalith Mahal road","Saraswathipuram","Agrahara","Lakshmipuram"];
+var Mumbai = ["Juhu","Andheri","Goregaon","Bandra","Kandiwali West","D.N.Nagar","Nehru Nagar","Malabar Hill","Worli","Navy Nagar","Lower Parel","Jogeshwari","Powai","Dadar","Colaba"];
+var Hyderabad = ["Jubilee Hills","Kukatpally","Kondapur","Begumpet","Uppal","Miyapur","Banjara Hills","Hitech city","Gachibowli","Manikonda"];
+var Delhi = ["Hauz khas","Sunder Nagar","Shanti Niketan","Prithviraj road","Defense colony","Golf links","Gulmohar park","Vasant vihar","Malviya nagar","Rajouri garden","Anand lok"];
+var Kolkata = ["Salt lake","Alipore","Jadavpur","Bhawanipur","Tollygunge","Rajarhat","Park Street","Howrah","Ballygunge","Joka","Barasat"];
+var Lucknow = ["Jankipuram","Indira Nagar","Hazratganj","Gomti Nagar Extension","Alambagh","Amar Shaheed Path","Aliganj","Mahanagar","Vikas Nagar"];
+var Ahmedabad = ["Prahlad Nagar","SG Highway","Chandkheda","Science City Road","Gota","South Bhopal","Thaltej","Maninagar","Ambli","Ambawadi","Gurukul","Naroda"];
+var Chennai = ["Adyar","Anna Nagar","Besant Nagar","Kotturpuram","Mylapore","R.A.Puram","Thiruvanmiyur","Teynampet","Vadapalani","Gopalapuram","Gandhi Nagar","Velachery","Ashok Nagar","Perambur","Periyar Nagar"];
+var Trivandrum = ["Kurvankonam","Kowdiar","Nanthancode","Sasthamangalam","Kumarapuram","Pattom","Venkode","Akkulam","Kazhakkoottam","Perurkada"];
+var Pune = ["Kalyani Nagar","Viman Nagar","Hadapsar","Koregaon Park","Shivaji Nagar","Wakad","Model Colony","Aundh","Boat Club Road","Dhanori","Karve Nagar","Kondhwa","Wagholi","Erandwane"];
+var Visakhapatnam = ["Lawsonsbay Colony","Siripuram","MVP Colony","Kancharapalem","Seethammadhara","Waltair Uplands","CBM Compound","Dwaraka Nagar","Ushodaya","Sri Nagar","Asilmetta","Maddilapalem","East Point Colony"];
+var Jaipur = ["Malviya Nagar","Vaishali Nagar","Ajmer Road","Mansarovar","Tonk Road","Shastri Nagar","Jhotwara","Bapu Nagar","Kalwar Road","Jagatpura","C-Scheme","Civil Lines","Durgapura"];
+var Thanjavur =  [" Thanjavur"," Kumbakonam"," Papanasam", "Pattukottai", "Peravurani", "Orathanadu", "Thiruvidaimarudur", "Thiruvaiyaru"," Budalur"]
+
+
+$("#city").change(function(){
+  var CitySelected = $(this).val();
+  var optionsList;
+  var htmlString = "";
+
+  switch (CitySelected) {
+    case "Bangalore":
+        optionsList = Bangalore;
+        break;
+    case "Mysore":
+        optionsList = Mysore;
+        break;
+    case "Mumbai":
+        optionsList = Mumbai;
+        break;
+    case "Hyderabad":
+        optionsList = Hyderabad;
+        break;
+    case "Delhi":
+        optionsList = Delhi;
+        break;
+    case "Kolkata":
+        optionsList = Kolkata;
+        break;
+    case "Lucknow":
+        optionsList = Lucknow;
+        break;
+    case "Ahmedabad":
+        optionsList = Ahmedabad;
+        break;
+    case "Chennai":
+        optionsList = Chennai;
+        break;
+    case "Trivandrum":
+        optionsList = Trivandrum;
+        break;
+    case "Pune":
+        optionsList = Pune;
+        break;
+    case "Visakhapatnam":
+        optionsList = Visakhapatnam;
+        break;
+    case "Jaipur":
+        optionsList = Jaipur;
+        break;
+    case "Thanjavur":
+        optionsList = Thanjavur;
+        break;
+}
+
+
+  for(var i = 0; i < optionsList.length; i++){
+    htmlString = htmlString+"<option value='"+ optionsList[i] +"'>"+ optionsList[i] +"</option>";
+  }
+  $("#area").html(htmlString);
+});
+</script>
+
+</body>
+
+</html>

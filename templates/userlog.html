@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <!-- Basic -->
+ <meta charset="utf-8" />
+ <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+ <!-- Mobile Metas -->
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+ <!-- Site Metas -->
+ <meta name="keywords" content="" />
+ <meta name="description" content="" />
+ <meta name="author" content="" />
+<link rel="shortcut icon" href="http://127.0.0.1:5000/static/images/favicon.png" type="">
+
+ <title> RENTAL HOME SWAP </title>
+
+ <!-- bootstrap core css -->
+ <link rel="stylesheet" type="text/css" href="http://127.0.0.1:5000/static/css/bootstrap.css" />
+
+ <!-- fonts style -->
+ <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+ <!--owl slider stylesheet -->
+ <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+ <!-- font awesome style -->
+ <link href="http://127.0.0.1:5000/static/css/font-awesome.min.css" rel="stylesheet" />
+
+ <!-- Custom styles for this template -->
+ <link href="http://127.0.0.1:5000/static/css/style.css" rel="stylesheet" />
+ <!-- responsive style -->
+ <link href="http://127.0.0.1:5000/static/css/responsive.css" rel="stylesheet" />
+  
+  <style>
+       #form1, #form2{
+      display: none;
+	  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	  padding: 5% 10%;
+	  margin: 10% 5%;
+    }
+    #form1.active, #form2.active{
+
+        display: block;
+}
+
+#details{
+  padding: 5% 10%;
+	  margin: 10% 5%;
+}
+textarea {
+  background: transparent;
+  color: #fff;
+  border: none;
+  margin-top: 10px;
+  width: 100%;
+  border-bottom: 1px solid #ffffff;
+    background-color: transparent;
+}
+#forms{
+margin-top: 5%;
+}
+#form1, #form2, #details{
+  background-color: rgba(0, 0, 0, 0.50);
+  color: white;
+}
+#forms h2{
+  font-size: 40px;
+  font-weight: bold;
+}
+section{
+  margin-top: 10%;
+}
+
+body{
+  background-image: url('https://wallpaperaccess.com/full/1126810.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#details h4{
+    font-size: larger;
+    font-weight: bold;
+}
+#details h2{
+    font-size: 40px;
+    font-weight: bold;
+}
+hr{
+  border:1px solid white;
+}
+  </style>
+
+</head>
+
+<body>
+
+  <div class="hero_area">
+
+    <div class="hero_bg_box">
+      <div class="bg_img_box">
+        <img src="http://127.0.0.1:5000/static/images/hero-bg.png" alt="">
+      </div>
+    </div>
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <img src="http://127.0.0.1:5000/static/images/logo.jpg" width="30px" height="30px" alt=""> &nbsp;&nbsp;
+          <a class="navbar-brand" href="#">
+            <span>
+              RENTAL HOME SWAP PORTAL
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item active">
+                <a class="nav-link" href="#services">POST</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('logout')}}"> Sign Out </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div id="customCarousel1" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <div class="detail-box">
+                    <h1>
+                      WELCOME <br>
+                      TO <br>
+                      TENANT PORTAL
+                    </h1>
+                
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+      </div>
+
+    </section>
+    <!-- end slider section -->
+  </div>
+
+  <section class="page-section" id="services">
+    <div class="container">
+        <div id="details"> 
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">HOME DETAILS</h2><hr><br>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-3"  id="pred">
+                <span class="fa-stack fa-4x">
+                  <img src="http://127.0.0.1:5000/static/images/slider.png" width="100px">
+                </span>
+                <h4 class="my-3">INTERCITY</h4>
+                <p >Continue to enter intercity home details</p>
+                <a href="#forms" data-value="#form1" onclick="toggleform(event)" class="btn btn-info">continue</a>
+            </div>
+            <div class="col-md-3" id="pred">
+              <span class="fa-stack fa-4x">
+                <img src="http://127.0.0.1:5000/static/images/slider.png" width="100px">
+              </span>
+                <h4 class="my-3">INTRACITY</h4>
+                <p>Continue to enter intracity home details</p>
+                <a href="#forms" data-value="#form2" onclick="toggleform(event)" class="btn btn-info">continue</a>
+            </div>
+            <div class="col-md-3"  id="pred">
+              <span class="fa-stack fa-4x">
+                <img src="http://127.0.0.1:5000/static/images/slider.png" width="100px">
+              </span>
+                <h4 class="my-3">VIEW POST</h4>
+                <p>Continue to view intracity post </p>
+                <a href="/intrapost"><input type="button" value="Continue" class="btn btn-info"></a> 
+            </div>
+            <div class="col-md-3"  id="pred">
+              <span class="fa-stack fa-4x">
+                <img src="http://127.0.0.1:5000/static/images/slider.png" width="100px">
+              </span>
+                <h4 class="my-3">VIEW POST</h4>
+                <p>Continue to view intercity post </p> 
+                <a href="/interpost"><input type="button" value="Continue" class="btn btn-info"></a> 
+            </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+<section id="forms">
+  <div class="container" >
+    <form  method="post" action="/intercity" id="form1">
+      <h2 class="text-center">INTERCITY</h2> <hr><br>
+      <div class="row">
+      <div class="col-lg-6">
+      <div class="form-group">
+        <label for="rooms">Number of rooms:</label>
+        <input type="number" class="form-control" id="rooms" placeholder="Enter no of rooms" name="rooms" required>
+      </div>
+      <div class="form-group">
+        <label for="brooms">Number of bathrooms:</label>
+        <input type="number" class="form-control" id="brooms" placeholder="Enter no of bathrooms" name="brooms" required>
+      </div>
+      <div class="form-group">
+        <label for="feets">Square feets:</label>
+        <input type="number" class="form-control" id="feets" placeholder="Enter square feets" name="feets" required>
+      </div>
+      <div class="form-group">
+        <label>Furnished: </label><br><br>
+        <input type="radio" id="furnished" name="furnished" value="yes" required>
+        <label for="furnished">Yes</label><br>
+        <input type="radio" id="furnished" name="furnished" value="no" required>
+        <label for="furnished">No</label>
+      </div>
+
+      <div class="form-group">
+        <label for="ccity">Current City:</label>
+        <select class="form-control" id="city" name="ccity">
+          <option value="">--Select City--</option>
+          <option value="Bangalore">Bangalore</option>
+          <option value="Mysore">Mysore</option>
+          <option value="Mumbai">Mumbai</option>
+          <option value="Hyderabad">Hyderabad</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Kolkata">Kolkata</option>
+          <option value="Lucknow">Lucknow</option>
+          <option value="Ahmedabad">Ahmedabad</option>
+          <option value="Chennai">Chennai</option>
+          <option value="Trivandrum">Trivandrum</option>
+          <option value="Pune">Pune</option>
+          <option value="Visakhapatnam">Visakhapatnam</option>
+          <option value="Jaipur">Jaipur</option>
+          <option value="Thanjavur">Thanjavur</option>
+        </select>
+      </div>
+      
+    </div>
+    <div class="col-lg-6">
+
+
+      <div class="form-group">
+        <label for="street">Area:</label>
+        <select class="form-control" id="area" name="area1">
+          <option value="">-- select one -- </option>
+      </select>
+      </div>
+
+      <div class="form-group">
+        <label for="street">Street address:</label>
+        <input type="text" class="form-control" placeholder="Enter street address" id="street" name="street">
+      </select>
+      </div>
+
+
+
+      <div class="form-group">
+        <label for="lcity">City looking for:</label>
+        <select class="form-control" id="lcity" name="lcity">
+          <option value="">--Select City--</option>
+          <option value="Bangalore">Bangalore</option>
+          <option value="Mysore">Mysore</option>
+          <option value="Mumbai">Mumbai</option>
+          <option value="Hyderabad">Hyderabad</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Kolkata">Kolkata</option>
+          <option value="Lucknow">Lucknow</option>
+          <option value="Ahmedabad">Ahmedabad</option>
+          <option value="Chennai">Chennai</option>
+          <option value="Trivandrum">Trivandrum</option>
+          <option value="Pune">Pune</option>
+          <option value="Visakhapatnam">Visakhapatnam</option>
+          <option value="Jaipur">Jaipur</option>
+          <option value="Thanjavur">Thanjavur</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="street">Area interested in:</label>
+        <select class="form-control" id="area1" name="area">
+          <option value="">-- select one -- </option>
+      </select>
+      </div>
+
+      <div class="form-group">
+        <label for="sdate">Agreement start date:</label>
+        <input type="date" class="form-control" id="sdate"  name="sdate" required>
+      </div>
+      <div class="form-group">
+        <label for="edate">Agreement end date:</label>
+        <input type="date" class="form-control" id="edate"  name="edate" required>
+      </div>
+    
+      <button type="submit" class="btn btn-success">Submit</button></br></br>
+    </div>
+    </div> 
+    </form>
+
+
+    <form  method="post" action="/intracity" id="form2">
+      <h2 class="text-center">INTRACITY</h2> <hr><br>
+      <div class="row">
+      <div class="col-lg-6">
+      <div class="form-group">
+        <label for="rooms">Number of rooms:</label>
+        <input type="number" class="form-control" id="rooms" placeholder="Enter no of rooms" name="rooms" required>
+      </div>
+      <div class="form-group">
+        <label for="brooms">Number of bathrooms:</label>
+        <input type="number" class="form-control" id="brooms" placeholder="Enter no of bathrooms" name="brooms" required>
+      </div>
+      <div class="form-group">
+        <label for="feets">Square feets:</label>
+        <input type="number" class="form-control" id="feets" placeholder="Enter square feets" name="feets" required>
+      </div>
+      <div class="form-group">
+        <label>Furnished: </label><br>
+        <input type="radio" id="furnished" name="furnished" value="yes" required>
+        <label for="furnished">Yes</label>
+        <input type="radio" id="furnished" name="furnished" value="no" required>
+        <label for="furnished">No</label>
+      </div>
+
+      <div class="form-group">
+        <label for="ccity">City:</label>
+        <select class="form-control" id="city1" name="ccity">
+          <option value="">--Select City--</option>
+          <option value="Bangalore">Bangalore</option>
+          <option value="Mysore">Mysore</option>
+          <option value="Mumbai">Mumbai</option>
+          <option value="Hyderabad">Hyderabad</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Kolkata">Kolkata</option>
+          <option value="Lucknow">Lucknow</option>
+          <option value="Ahmedabad">Ahmedabad</option>
+          <option value="Chennai">Chennai</option>
+          <option value="Trivandrum">Trivandrum</option>
+          <option value="Pune">Pune</option>
+          <option value="Visakhapatnam">Visakhapatnam</option>
+          <option value="Jaipur">Jaipur</option>
+          <option value="Thanjavur">Thanjavur</option>
+        </select>
+      </div>
+
+      
+    </div>
+    <div class="col-lg-6">
+      
+      <div class="form-group">
+        <label for="street">Area:</label>
+        <select class="form-control" id="area2" name="area3">
+          <option value="">-- select one -- </option>
+      </select>
+      </div>
+
+      <div class="form-group">
+        <label for="street">Street address:</label>
+        <input type="text" class="form-control" placeholder="Enter street address" id="street" name="street">
+      </select>
+      </div>
+
+      <div class="form-group">
+        <label for="area">Area interested in:</label>
+        <select class="form-control" id="area3" name="area">
+          <option value="">-- select one -- </option>
+      </select>
+      </div>
+
+      <div class="form-group">
+        <label for="sdate">Agreement start date:</label>
+        <input type="date" class="form-control" id="sdate"  name="sdate" required>
+      </div>
+      <div class="form-group">
+        <label for="edate">Agreement end date:</label>
+        <input type="date" class="form-control" id="edate"  name="edate" required>
+      </div>
+      <br>
+    
+      <button type="submit" class="btn btn-success">Submit</button></br></br>
+    </div>
+    </div> 
+    </form>
+
+    </div>
+</section>
+
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-6 info_col">
+          <div class="info_contact">
+            <h4>
+              Address
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +01 1234567890
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  demo@gmail.com
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="info_social">
+            <a href="">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="col-md-6 col-lg-6 info_col ">
+          <h4>
+            Feedback
+          </h4>
+          <form action="#">
+            <input type="text" placeholder="Enter email" />
+			<textarea id="w3review" name="w3review" rows="2" cols="50">Enter feedback</textarea>
+            <button type="submit">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info section -->
+
+
+ <!-- jQery -->
+ <script type="text/javascript" src="http://127.0.0.1:5000/static/js/jquery-3.4.1.min.js"></script>
+ <!-- popper js -->
+ <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+ </script>
+ <!-- bootstrap js -->
+ <script type="text/javascript" src="http://127.0.0.1:5000/static/js/bootstrap.js"></script>
+ <!-- owl slider -->
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+ </script>
+ <!-- custom js -->
+ <!-- <script type="text/javascript" src="http://127.0.0.1:5000/static/js/custom.js"></script> -->
+ <!-- Google Map -->
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+ </script>
+ <!-- End Google Map -->
+
+  <script>
+    function toggleform(e) {
+    var Id =(e.target.getAttribute('data-value'))
+    console.log(Id)
+    let Items= ['#form1', '#form2'];
+    Items.map(function(item) {
+        if(Id === item ) {
+            $(item).addClass("active");
+        }
+        else {
+        $(item).removeClass("active");
+        }
+    })
+}
+
+function test_func(data) {
+  if(data){
+    alert(data);
+  }
+}
+
+test_func({{ msg|safe }})
+
+</script>
+
+
+<script>
+var Bangalore = ["Electronic City","Sadashivanagar","Basavanagudi","Rajajinagar","Malleshwaram","Whitefield","Vijaynagar","BTM Layout","Bommanahalli","Koramangala","Marathahalli","Jaynagar","MG Road","Sarjapur"];
+var Mysore = ["Vijaynagar","J.P.Nagar","Ramakrishna Nagar","Dattagalli","Kuvempunagar","Jayalakshmi Puram","Gokulam","Siddhartha Layout","Yadavgiri","Lalith Mahal road","Saraswathipuram","Agrahara","Lakshmipuram"];
+var Mumbai = ["Juhu","Andheri","Goregaon","Bandra","Kandiwali West","D.N.Nagar","Nehru Nagar","Malabar Hill","Worli","Navy Nagar","Lower Parel","Jogeshwari","Powai","Dadar","Colaba"];
+var Hyderabad = ["Jubilee Hills","Kukatpally","Kondapur","Begumpet","Uppal","Miyapur","Banjara Hills","Hitech city","Gachibowli","Manikonda"];
+var Delhi = ["Hauz khas","Sunder Nagar","Shanti Niketan","Prithviraj road","Defense colony","Golf links","Gulmohar park","Vasant vihar","Malviya nagar","Rajouri garden","Anand lok"];
+var Kolkata = ["Salt lake","Alipore","Jadavpur","Bhawanipur","Tollygunge","Rajarhat","Park Street","Howrah","Ballygunge","Joka","Barasat"];
+var Lucknow = ["Jankipuram","Indira Nagar","Hazratganj","Gomti Nagar Extension","Alambagh","Amar Shaheed Path","Aliganj","Mahanagar","Vikas Nagar"];
+var Ahmedabad = ["Prahlad Nagar","SG Highway","Chandkheda","Science City Road","Gota","South Bhopal","Thaltej","Maninagar","Ambli","Ambawadi","Gurukul","Naroda"];
+var Chennai = ["Adyar","Anna Nagar","Besant Nagar","Kotturpuram","Mylapore","R.A.Puram","Thiruvanmiyur","Teynampet","Vadapalani","Gopalapuram","Gandhi Nagar","Velachery","Ashok Nagar","Perambur","Periyar Nagar"];
+var Trivandrum = ["Kurvankonam","Kowdiar","Nanthancode","Sasthamangalam","Kumarapuram","Pattom","Venkode","Akkulam","Kazhakkoottam","Perurkada"];
+var Pune = ["Kalyani Nagar","Viman Nagar","Hadapsar","Koregaon Park","Shivaji Nagar","Wakad","Model Colony","Aundh","Boat Club Road","Dhanori","Karve Nagar","Kondhwa","Wagholi","Erandwane"];
+var Visakhapatnam = ["Lawsonsbay Colony","Siripuram","MVP Colony","Kancharapalem","Seethammadhara","Waltair Uplands","CBM Compound","Dwaraka Nagar","Ushodaya","Sri Nagar","Asilmetta","Maddilapalem","East Point Colony"];
+var Jaipur = ["Malviya Nagar","Vaishali Nagar","Ajmer Road","Mansarovar","Tonk Road","Shastri Nagar","Jhotwara","Bapu Nagar","Kalwar Road","Jagatpura","C-Scheme","Civil Lines","Durgapura"];
+var Thanjavur =  [" Thanjavur"," Kumbakonam"," Papanasam", "Pattukottai", "Peravurani", "Orathanadu", "Thiruvidaimarudur", "Thiruvaiyaru"," Budalur"]
+
+$("#city").change(function(){
+  var CitySelected = $(this).val();
+  var optionsList;
+  var htmlString = "";
+
+  switch (CitySelected) {
+    case "Bangalore":
+        optionsList = Bangalore;
+        break;
+    case "Mysore":
+        optionsList = Mysore;
+        break;
+    case "Mumbai":
+        optionsList = Mumbai;
+        break;
+    case "Hyderabad":
+        optionsList = Hyderabad;
+        break;
+    case "Delhi":
+        optionsList = Delhi;
+        break;
+    case "Kolkata":
+        optionsList = Kolkata;
+        break;
+    case "Lucknow":
+        optionsList = Lucknow;
+        break;
+    case "Ahmedabad":
+        optionsList = Ahmedabad;
+        break;
+    case "Chennai":
+        optionsList = Chennai;
+        break;
+    case "Trivandrum":
+        optionsList = Trivandrum;
+        break;
+    case "Pune":
+        optionsList = Pune;
+        break;
+    case "Visakhapatnam":
+        optionsList = Visakhapatnam;
+        break;
+    case "Jaipur":
+        optionsList = Jaipur;
+        break;
+    case "Thanjavur":
+        optionsList = Thanjavur;
+        break;
+}
+
+
+  for(var i = 0; i < optionsList.length; i++){
+    htmlString = htmlString+"<option value='"+ optionsList[i] +"'>"+ optionsList[i] +"</option>";
+  }
+  $("#area").html(htmlString);
+});
+
+
+$("#lcity").change(function(){
+  var CitySelected1 = $(this).val();
+  var optionsList1;
+  var htmlString1 = "";
+
+  switch (CitySelected1) {
+    case "Bangalore":
+        optionsList1 = Bangalore;
+        break;
+    case "Mysore":
+        optionsList1 = Mysore;
+        break;
+    case "Mumbai":
+        optionsList1 = Mumbai;
+        break;
+    case "Hyderabad":
+        optionsList1 = Hyderabad;
+        break;
+    case "Delhi":
+        optionsList1 = Delhi;
+        break;
+    case "Kolkata":
+        optionsList1 = Kolkata;
+        break;
+    case "Lucknow":
+        optionsList1 = Lucknow;
+        break;
+    case "Ahmedabad":
+        optionsList1 = Ahmedabad;
+        break;
+    case "Chennai":
+        optionsList1 = Chennai;
+        break;
+    case "Trivandrum":
+        optionsList1 = Trivandrum;
+        break;
+    case "Pune":
+        optionsList1 = Pune;
+        break;
+    case "Visakhapatnam":
+        optionsList1 = Visakhapatnam;
+        break;
+    case "Jaipur":
+        optionsList1 = Jaipur;
+        break;
+    case "Thanjavur":
+        optionsList1 = Thanjavur;
+        break;
+}
+
+
+  for(var i = 0; i < optionsList1.length; i++){
+    htmlString1 = htmlString1+"<option value='"+ optionsList1[i] +"'>"+ optionsList1[i] +"</option>";
+  }
+  $("#area1").html(htmlString1);
+});
+
+
+$("#city1").change(function(){
+  var CitySelected2 = $(this).val();
+  console.log(CitySelected2)
+  var optionsList2;
+  var htmlString2 = "";
+
+  switch (CitySelected2) {
+    case "Bangalore":
+        optionsList2 = Bangalore;
+        break;
+    case "Mysore":
+        optionsList2 = Mysore;
+        break;
+    case "Mumbai":
+        optionsList2 = Mumbai;
+        break;
+    case "Hyderabad":
+        optionsList2 = Hyderabad;
+        break;
+    case "Delhi":
+        optionsList2 = Delhi;
+        break;
+    case "Kolkata":
+        optionsList2 = Kolkata;
+        break;
+    case "Lucknow":
+        optionsList2 = Lucknow;
+        break;
+    case "Ahmedabad":
+        optionsList2 = Ahmedabad;
+        break;
+    case "Chennai":
+        optionsList2 = Chennai;
+        break;
+    case "Trivandrum":
+        optionsList2 = Trivandrum;
+        break;
+    case "Pune":
+        optionsList2 = Pune;
+        break;
+    case "Visakhapatnam":
+        optionsList2 = Visakhapatnam;
+        break;
+    case "Jaipur":
+        optionsList2 = Jaipur;
+        break;
+    case "Thanjavur":
+        optionsList2 = Thanjavur;
+        break;
+}
+
+
+  for(var i = 0; i < optionsList2.length; i++){
+    htmlString2 = htmlString2+"<option value='"+ optionsList2[i] +"'>"+ optionsList2[i] +"</option>";
+  }
+  $("#area2").html(htmlString2);
+  $("#area3").html(htmlString2);
+});
+
+</script>
+
+</body>
+
+</html>
